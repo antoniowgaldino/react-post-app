@@ -10,29 +10,35 @@ import { Login } from './pages/login/login.jsx';
 import { Post } from './pages/post/post.jsx';
 import { Sobre } from './pages/sobre/Sobre.jsx';
 import { Contato } from './pages/contato/Contato.jsx';
+import { Layout } from './components/layout/Layout.jsx';
 
 const router = createBrowserRouter([
   {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "/",
+    path: '/',
     element: <Login />,
   },
   {
-    path: "/post",
-    element: <Post />,
-  },
-  {
-    path: "/contato",
-    element: <Contato />,
-  },
-  {
-    path: "/sobre",
-    element: <Sobre />,
+    element: <Layout />,
+    children: [
+      {
+        path: '/home',
+        element: <Home />,
+      },
+      {
+        path: '/post',
+        element: <Post />,
+      },
+      {
+        path: '/contato',
+        element: <Contato />,
+      },
+      {
+        path: '/sobre',
+        element: <Sobre />,
+      },
+    ]
   }
-]);
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Container, Form, Navbar, Row } from 'react-bootstrap'
+import { Col, Container, Form, Nav, Navbar, Row } from 'react-bootstrap'
 
 export const Header = () => {
     return (
@@ -15,28 +15,30 @@ export const Header = () => {
                         />{' '}
 
                     </Navbar.Brand>
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="/post">Post</Nav.Link>
+                            <Nav.Link href="/sobre">Sobre</Nav.Link>
+                            <Nav.Link href="/contato">Contato</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
                     <Navbar.Collapse className="justify-content-end">
                         <Form inline>
                             <Row>
                                 <Col xs="auto">
                                     <Form.Control
                                         type="text"
-                                        placeholder="Sua pesquisa"
+                                        placeholder="Acesso rápido"
                                         className=" mr-sm-2"
                                     />
                                 </Col>
                                 <Col xs="auto">
-                                    <Button type="submit">Pesquisar</Button>
+                                    <Navbar.Text>
+                                        Logado como <a href="#login">Alberto Wowtilla</a>
+                                    </Navbar.Text>
                                 </Col>
                             </Row>
                         </Form>
-                    </Navbar.Collapse>
-
-
-                    <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
-                            Logado como <a href="#login">Alberto Wowtilla</a>
-                        </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
