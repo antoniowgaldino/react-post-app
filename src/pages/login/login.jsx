@@ -1,27 +1,32 @@
 import { useNavigate } from "react-router-dom";
-import './Login.css'
+import './Login.css';
+import { Usuarios } from "../../usuarios/Usuarios";
 
 export const Login = () => {
     const navigate = useNavigate();
 
     const login = (e) => {
-        e.preventDefaut()
-        const formData = new FormData(e.target)
-
+        e.preventDefault(); // Corrigido de 'e.preventDefaut' para 'e.preventDefault()'
+        const formData = new FormData(e.target);
         const formValues = {
             email: formData.get('email'),
             senha: formData.get('senha')
-        }
+        };
 
-        if (formData.email === 'adm@gmail.com' && formData.senha === '123') {
-            alert('Login realizado com sucesso!')
-            navigate('/home')
+        // Verificar se o usuário existe e se a senha está correta
+        const Usuarios = users.find(u => u.email === formValues.email && u.senha === formValues.senha);
+
+        if (user) {
+            // Armazenando os dados do usuário no localStorage
+            localStorage.setItem('user', JSON.stringify(user));
+            alert('Login realizado com sucesso!');
+            navigate('/home');
         } else {
-            alert('Login inválido!')
+            alert('Login inválido!');
         }
 
         console.log('Enviou:', formValues);
-    }
+    };
 
     return (
         <div>
@@ -32,16 +37,16 @@ export const Login = () => {
 
                     <div className="form-floating">
                         <input name="email" type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-                        <label for="floatingInput">Seu E-mail</label>
+                        <label htmlFor="floatingInput">Seu E-mail</label>
                     </div>
                     <div className="form-floating">
                         <input name="senha" type="password" className="form-control" id="floatingPassword" placeholder="Password" />
-                        <label for="floatingPassword">Sua Senha</label>
+                        <label htmlFor="floatingPassword">Sua Senha</label>
                     </div>
 
                     <div className="form-check text-start my-3">
                         <input className="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault" />
-                        <label className="form-check-label" for="flexCheckDefault">
+                        <label className="form-check-label" htmlFor="flexCheckDefault">
                             Lembrar meu acesso
                         </label>
                     </div>
@@ -50,5 +55,5 @@ export const Login = () => {
                 </form>
             </main>
         </div>
-    )
-}
+    );
+};

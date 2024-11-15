@@ -1,8 +1,14 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  /* padding: 2rem; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   text-align: center;
+}
+
+main {
+  flex: 1;
 }
 
 .logo {
@@ -39,4 +45,52 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Estilo para os resultados da busca */
+.search-results {
+  position: absolute;
+  top: 60px; /* Ajuste conforme necessário */
+  right: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 200px;
+  z-index: 1000;
+}
+
+.search-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-results li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-results li:last-child {
+  border-bottom: none;
+}
+
+.search-results li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.search-results li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  width: 100%;
+  position: relative; /* Posicionamento relativo para o footer */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 4rem;
+  border-top: 1px solid #e5e5e5; /* Cor da borda superior */
 }

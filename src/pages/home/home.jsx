@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 
 export const Home = () => {
     return (
-        <div>
+        <div className="conteudo">
             <Container>
                 <Table />
             </Container>
